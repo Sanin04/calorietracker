@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Tracker</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav id="main-nav">
+        <h1>Calorie Tracker</h1>
+    </nav>
+
+    <main>
+        <!-- STATS SECTIONS -->
+        <div class="stats-container" id="weekly-stats">
+            <section id="weekly-stats-section">
+                <h2>Weekly Stats</h2>
+                <div id="weekly-chart">
+                    <canvas id="weeklyChart"></canvas>
+                </div>
+                <p>Weekly total calories (last 7 days): <span id="weekly-calories">0</span></p>
+            </section>
+
+            <section id="daily-intake-section">
+                <h2>Daily Calorie Intake</h2>
+                <div id="daily-chart">
+                    <canvas id="dailyChart"></canvas>
+                </div>
+                <p>Calories eaten today: <span id="daily-calories">0</span></p>
+            </section>
+        </div>
+
+        <!-- ADD FOOD SECTION -->
+        <section id="add-food-section">
+            <h2>Add Food</h2>
+
+            <div class="form-group">
+                <label for="food-name">Food Name</label>
+                <input type="text" id="food-name" placeholder="e.g. Chicken Breast">
+            </div>
+
+            <div class="form-group">
+                <label for="food-calories">Calories</label>
+                <input type="number" id="food-calories" placeholder="e.g. 350">
+            </div>
+
+            <div class="form-group">
+                <label for="food-time">Date & Time</label>
+                <input type="datetime-local" id="food-time">
+            </div>
+
+            <button type="button" onclick="addFood()">Add Food</button>
+            <button type="button" onclick="resetFoodInputs()">Reset Inputs</button>
+            <button type="button" onclick="undoLastFood()">Undo Last Food</button>
+            <button type="button" onclick="resetAllData()">Reset All Data</button>
+            <p id="message"></p>
+        </section>
+
+        <!-- CALCULATOR SECTION -->
+        <section id="calculator">
+            <h2>Calorie Calculator</h2>
+            <form>
+                <input type="number" id="height" placeholder="Height (cm)" required>
+                <input type="number" id="weight" placeholder="Weight (kg)" required>
+                <input type="number" id="workout" placeholder="Workout time (minutes per week)" required>
+
+                <select id="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+
+                <select id="goal" required>
+                    <option value="">Select Goal</option>
+                    <option value="-0.5">Lose 0.5 kg/week</option>
+                    <option value="-0.25">Lose 0.25 kg/week</option>
+                    <option value="0.5">Gain 0.5 kg/week</option>
+                    <option value="0.25">Gain 0.25 kg/week</option>
+                </select>
+
+                <button type="button" onclick="calculateCalories()">Calculate</button>
+                <p>Recommended daily calories: <span id="result">0</span></p>
+            </form>
+        </section>
+
+        <!-- MOTIVATION SECTION -->
+        <section id="motivation">
+            <h2>Motivation</h2>
+            <img src="Trying-is-the-first-step-toward-failure-720.jpg" alt="Motivational Image">
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
